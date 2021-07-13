@@ -15,11 +15,11 @@ def save_in_dict(model, X_test, Y_test, X_train, Y_train, history, class_nb, cla
     #y_pred_train = np.argmax(y_pred_train, axis=1)
 
 #    if nb_class > 2:
-#        y_pred_test = np.argmax(y_pred_test, axis=1)
-#        y_pred_train = np.argmax(y_pred_train, axis=1)
+    y_pred_test = np.argmax(y_pred_test, axis=1)
+    y_pred_train = np.argmax(y_pred_train, axis=1)
 #    else:
-    y_pred_test = y_pred_test.round().astype(int)
-    y_pred_train = y_pred_train.round().astype(int)
+#    y_pred_test = y_pred_test.round().astype(int)
+#    y_pred_train = y_pred_train.round().astype(int)
 
     conf_matrix_test = confusion_matrix(Y_test, y_pred_test)
     conf_matrix_train = confusion_matrix(Y_train, y_pred_train)

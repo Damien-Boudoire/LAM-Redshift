@@ -57,9 +57,7 @@ def make_CNNGRU(input, output, dropout=.2):
     return model
 
 
-def make_CNNLSTM(nb_class):
-    dim=(17908, 1)#,np.shape(X_train)[1:]
-#    print(nb_class)
+def make_CNNLSTM(input_shape,nb_class):
 
     if nb_class == 2:
       loss='binary_crossentropy'
@@ -68,10 +66,9 @@ def make_CNNLSTM(nb_class):
       loss='categorical_crossentropy'
       last_activation='Softmax'
 
-#    print(loss)
 
     model= Sequential()
-    model.add(Conv1D(32,kernel_size=10,padding='same', activation='relu', input_shape=dim))
+    model.add(Conv1D(32,kernel_size=10,padding='same', activation='relu', input_shape=input_shape))
     model.add(Conv1D(32,kernel_size=10,padding='same', activation='relu'))
     model.add(MaxPooling1D(pool_size=2))
 

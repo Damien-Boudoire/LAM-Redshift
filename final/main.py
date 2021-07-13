@@ -53,13 +53,13 @@ if __name__ == '__main__':
         if modelName not in ["CNN3", "CNN8", "CNNGRU", "CNNLSTM"]:
             print(modelName)
             raise Exception
-        preprocessed = sys.argv[2]
-        if preprocessed not in ["preprocessed", "raw"]:
-            print(preprocessed)
-            raise Exception
-        target = sys.argv[3]
+        target = sys.argv[2]
         if target not in ["DeltaZ", "Success2", "Success3", "Flag3"]:
             print(target)
+            raise Exception
+        preprocessed = sys.argv[3]
+        if preprocessed not in ["preprocessed", "raw"]:
+            print(preprocessed)
             raise Exception
         undersampled = sys.argv[4]
         if undersampled not in ["undersampled", "full"]:

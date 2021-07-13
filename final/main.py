@@ -37,7 +37,7 @@ if __name__ == '__main__':
     ### main function of this application
     #   usage : python main.py model_name target_name (raw | preprocessed) (full | undersampled) epoch batch
     #
-    #   mode_name = CNN3 | CNN8 | CNNGRU | CNNLSTM
+    #   model_name = CNN3 | CNN8 | CNNGRU | CNNLSTM
     #       the model to train and test
     #   target_name : labels to use for classification
     #   raw : build the dataset from the original files
@@ -55,8 +55,8 @@ if __name__ == '__main__':
         undersampled = sys.argv[4]
         epoch = sys.argv[5]
         batch_size = sys.argv[6]
-    except Exception as error:
-        print(error)
+    except Exception:
+        print("Bad arguments : model target preprocessed undersampled epoch batch")
         exit(-1)
 
 

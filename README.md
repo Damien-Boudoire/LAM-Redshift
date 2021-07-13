@@ -126,4 +126,43 @@ Cette fonction est le modèle CNN-LSTM de notre étude.
     -------
     model
 
+## Report
+Ce dossier sert pour l'affichage des métriques
+
+### save_in_dict
+Ce code sert à sauvegardé les résultats d'un modèle sous la forme d'un dictionnaire pour avior accès a toutes les informations et les afficher avec fig.py
+
+    save_in_dict(model, X_test, Y_test, X_train, Y_train, history, nb_class, nom_classes, file_name)
+    
+    Parameters
+    ----------
+    model : Sortie d'un des modèles (make_CNN...)
+    X_test : Données de la partie "Test"
+    Y_test : Target en OneHotEncoding de la partie "Test"
+    X_train : Données de la partie "Train"
+    Y_train : Target en OneHotEncoding de la partie "Train"
+    history : history du modèle 
+    nb_class : Nombres de classes
+    nom_classes : Nom des classes
+    file_name : Nom du fichier à sauvegarder
+    
+    Le dictionnaire contient les informations suivantes
+    ----------
+    "conf_matrix_train" : Matrice de confusion de la partie "Train"
+    "conf_matrix_test" : Matrice de confusion de la partie "Test"
+    "nb_class" : Nombres de classes
+    "nom_classes" : Nom des classes
+    "acc" : Valeur des accuracys lors de l'apprentissage
+    "loss" : Valeur des loss lors de l'apprentissage
+    "val_acc" : Valeur des validation accuracys lors de l'apprentissage
+    "val_loss" : Valeur des validation loss lors de l'apprentissage
+    "report" : Les différentes métriques (Précision, Rappel, F1-Score)
+    "model_summary" : L'architecture du modèle
+    "lr" : Valeurs du learning rate durant l'apprentissage
+
+
+### fig
+Ce code sert à afficher sous la forme d'un subplot, les 2 matrices de confusions ("Train" / "Test"), les courbes d'apprentissages (Accuracy, Loss, Validation Accuracy, Validation Loss) en fonction du nombre d'epochs et les différentes métriques de l'apprentissage
+
+    
 

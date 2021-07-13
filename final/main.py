@@ -76,7 +76,7 @@ if __name__ == '__main__':
     elif modelName == "CNNGRU":
         model = make_CNNGRU(input_shape, nb_classes)
     elif modelName == "CNNLSTM":
-        model = makeCnnLSTM(input_shape, nb_classes)
+        model = make_CNNLSTM(input_shape, nb_classes)
     else:
         print("Bad model name")
         exit(-1)

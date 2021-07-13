@@ -80,6 +80,10 @@ if __name__ == '__main__':
         X_train, X_validation ,X_test, target_train, target_validation, target_test,\
         Y_train , Y_validation, Y_test , nb_classes, nom_classes =dataset.load_dataset(target, undersampled == "undersampled")
 
+    X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
+    X_validation = np.reshape(X_validation, (X_validation.shape[0], X_validation.shape[1], 1))
+
     #we build the model
     if modelName == "CNN3":
         model = make_CNN_3layers(input_shape, nb_classes)

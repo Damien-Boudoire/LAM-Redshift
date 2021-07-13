@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
 
+data_path = "./data/"
 
 def load_processed(target, undersample)
     if undersample:
@@ -26,7 +27,7 @@ def load_processed(target, undersample)
         nb_class = 3
         nom_classes = ["Success", "Spurious", "Mismatch"]
 
-    name = '../data/' + target + '/' + eq
+    name = data_path + target + '/' + eq
     print(name)
     X_train = np.load(name + '/TRAIN/X.npy')
     target_train = np.load(name + '/TRAIN/Y.npy')
@@ -49,9 +50,9 @@ def load_dataset(target,undersample):
   ##### Target #######
   # Les cibles peuvent être : 'Flag' , 'Success' , 'DeltaZ'
 
-	pdf_zgrid=np.load('../data/zgrid32.npy')
-	attributes=np.load('../data/attributes32.npy', allow_pickle=True)
-	pdfs=np.load('../data/pdfs32.npy', allow_pickle=True)
+	pdf_zgrid=np.load(data_path + 'zgrid32.npy')
+	attributes=np.load(data_path + 'attributes32.npy', allow_pickle=True)
+	pdfs=np.load(data_path + 'pdfs32.npy', allow_pickle=True)
 
 
 	if target == 'Flag':

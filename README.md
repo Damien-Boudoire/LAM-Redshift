@@ -8,8 +8,9 @@
 ## Fichier "dataset.py"
 
 ### load_processed
+Ce code permet de télécharger les données déja pré-découpées en Train / Test / Validation
 
-    load_processed(target, undersample)
+    load_processed(target, Undersample)
     
     Parameters
     ----------
@@ -19,10 +20,54 @@
         'Success2' : Classification en 2 classes 'Success' - 'Spurious/Mismatch' 
         'Flag3' : Classification en 3 classes 'Flag 1' , 'Flags 2&9' , 'Flag 3&4'
         'Success3' : Classification en 3 classes 'Success' - 'Spurious' - 'Mismatch'
-     Undersample : bool
-          True : Downsampling pour rééquilibrer les classes
-          False : Pas de rééquilibrage
+    Undersample : bool
+        True : Downsampling pour rééquilibrer les classes
+        False : Pas de rééquilibrage
+    
+    Return 
+        X_train : array : Données pour la partie "Train"
+        X_validation : Données pour la partie "Validation"
+        X_test : Données pour la partie "Test"
+        target_train : Labels pour la partie "Train"
+        target_validation : Labels pour la partie "Validation"
+        target_test : Labels pour la partie "Test"
+        Y_train : Target en One-Hot-Encoding pour la partie "Train"
+        Y_validation : Target en One-Hot-Encoding pour la partie "Validation"
+        Y_test : Target en One-Hot-Encoding pour la partie "Test"
+        nb_class : Nombre de classes
+        nom_classes : Noms des différentes classes
+    -------
 
+### load_dataset
+Ce code permet de télécharger toutes les données et les préparent pour le modèle en 3 parties : "Train", "Test" et "Validation"
+
+    load_processed(target, Undersample)
+    
+    Parameters
+    ----------
+    target : str 
+        Choix de la classe : 'DeltaZ', 'Success2' ,'Flag3', 'Success3'
+        'DeltaZ' : Classification en 2 classes selon le critère DeltaZ > 10^-3 et DeltaZ < 10^-3
+        'Success2' : Classification en 2 classes 'Success' - 'Spurious/Mismatch' 
+        'Flag3' : Classification en 3 classes 'Flag 1' , 'Flags 2&9' , 'Flag 3&4'
+        'Success3' : Classification en 3 classes 'Success' - 'Spurious' - 'Mismatch'
+    Undersample : bool
+        True : Downsampling pour rééquilibrer les classes
+        False : Pas de rééquilibrage
+    
+    Return 
+        X_train : array : Données pour la partie "Train"
+        X_validation : Données pour la partie "Validation"
+        X_test : Données pour la partie "Test"
+        target_train : Labels pour la partie "Train"
+        target_validation : Labels pour la partie "Validation"
+        target_test : Labels pour la partie "Test"
+        Y_train : Target en One-Hot-Encoding pour la partie "Train"
+        Y_validation : Target en One-Hot-Encoding pour la partie "Validation"
+        Y_test : Target en One-Hot-Encoding pour la partie "Test"
+        nb_class : Nombre de classes
+        nom_classes : Noms des différentes classes
+    -------
 
 ## Fichier "models.py"
 

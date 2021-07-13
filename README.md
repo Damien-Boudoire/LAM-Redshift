@@ -5,6 +5,25 @@
 
 
 
+## Fichier "dataset.py"
+
+### load_processed
+
+    load_processed(target, undersample)
+    
+    Parameters
+    ----------
+    target : str 
+        Choix de la classe : 'DeltaZ', 'Success2' ,'Flag3', 'Success3'
+        'DeltaZ' : Classification en 2 classes selon le critère DeltaZ > 10^-3 et DeltaZ < 10^-3
+        'Success2' : Classification en 2 classes 'Success' - 'Spurious/Mismatch' 
+        'Flag3' : Classification en 3 classes 'Flag 1' , 'Flags 2&9' , 'Flag 3&4'
+        'Success3' : Classification en 3 classes 'Success' - 'Spurious' - 'Mismatch'
+     Undersample : bool
+          True : Downsampling pour rééquilibrer les classes
+          False : Pas de rééquilibrage
+
+
 ## Fichier "models.py"
 
 ### make_CNN

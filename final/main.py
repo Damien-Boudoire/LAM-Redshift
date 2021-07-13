@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
     #training the model on dataset
     history =model.fit(X_train, Y_train, validation_data=(X_validation, Y_validation),
-                       epochs=epoch, batch=batch_size, callbacks=callbacks)
+                       epochs=epoch, batch_size=batch_size, callbacks=callbacks)
 
     #we load the best state achieved during training
     model =keras.model.load_model(model_file)

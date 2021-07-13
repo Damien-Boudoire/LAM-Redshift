@@ -2,7 +2,7 @@
 
 
 ## Fichier "main.py"
-
+Ce code est le script général qui appelle toutes les autres fonctions
 
 
 ## Fichier "dataset.py"

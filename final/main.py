@@ -118,7 +118,7 @@ if __name__ == '__main__':
                        epochs=epoch, batch_size=batch_size, callbacks=callbacks)
 
     #we load the best state achieved during training
-    model =keras.model.load_model(model_file)
+    model =keras.models.load_model(model_file)
 
     #we test the model and save its performance in a npy file
     Save_in_dict(model, X_test, target_test, X_train, target_train, history, nb_classes, nom_classes, file_name)

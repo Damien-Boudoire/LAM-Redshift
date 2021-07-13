@@ -64,7 +64,7 @@ if __name__ == '__main__':
         epoch = int(sys.argv[5])
         batch_size = int(sys.argv[6])
     except Exception:
-        print("Bad arguments : model target preprocessed undersampled epoch batch")
+        print("Bad arguments \n got : {0} \n need : model target preprocessed undersampled epoch batch".format(sys.argv))
         exit(-1)
 
 

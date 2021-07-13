@@ -24,7 +24,8 @@ Ce code permet de télécharger les données déja pré-découpées en Train / T
         True : Downsampling pour rééquilibrer les classes
         False : Pas de rééquilibrage
     
-    Return 
+    Return
+    -------
         X_train : array : Données pour la partie "Train"
         X_validation : Données pour la partie "Validation"
         X_test : Données pour la partie "Test"
@@ -36,7 +37,6 @@ Ce code permet de télécharger les données déja pré-découpées en Train / T
         Y_test : Target en One-Hot-Encoding pour la partie "Test"
         nb_class : Nombre de classes
         nom_classes : Noms des différentes classes
-    -------
 
 ### load_dataset
 Ce code permet de télécharger toutes les données et les préparent pour le modèle en 3 parties : "Train", "Test" et "Validation"
@@ -55,7 +55,8 @@ Ce code permet de télécharger toutes les données et les préparent pour le mo
         True : Downsampling pour rééquilibrer les classes
         False : Pas de rééquilibrage
     
-    Return 
+    Return
+    -------
         X_train : array : Données pour la partie "Train"
         X_validation : Données pour la partie "Validation"
         X_test : Données pour la partie "Test"
@@ -67,7 +68,6 @@ Ce code permet de télécharger toutes les données et les préparent pour le mo
         Y_test : Target en One-Hot-Encoding pour la partie "Test"
         nb_class : Nombre de classes
         nom_classes : Noms des différentes classes
-    -------
 
 ## Fichier "models.py"
 
@@ -86,8 +86,9 @@ C'est un modèle simple mais qui donne déjà de bon résultat en 2 classes et a
         nombre de classes utilisées pour ce modèle, 
         correspond à la taille de la sortie du modèle
 
-    Return model
+    Return
     -------
+    model
 
 ### make_CNNGru
 Cette fonction est le modèle CNN-Gru de notre étude.
@@ -103,8 +104,9 @@ Cette fonction est le modèle CNN-Gru de notre étude.
         nombre de classes utilisées pour ce modèle, 
         correspond à la taille de la sortie du modèle
 
-    Return model
+    Return
     -------
+    model
 
 ### make_CNNLSTM
 Cette fonction est le modèle CNN-LSTM de notre étude.
@@ -120,7 +122,8 @@ Cette fonction est le modèle CNN-LSTM de notre étude.
         nombre de classes utilisées pour ce modèle, 
         correspond à la taille de la sortie du modèle
 
-    Return model
+    Return
     -------
+    model
 
 

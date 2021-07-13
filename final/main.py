@@ -8,7 +8,7 @@ from keras.callbacks import LearningRateScheduler, ReduceLROnPlateau, ModelCheck
 
 import dataset
 from models import make_CNN_3layers, make_CNN_8layers, make_CNNGRU, make_CNNLSTM
-from report.save_in_dict import Save_in_dict
+from report.save_in_dict import save_in_dict
 
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3

@@ -44,7 +44,7 @@ def load_processed(target, undersample)
     return X_train, X_validation, X_test, target_train, target_validation, target_test, Y_train, Y_validation, Y_test, nb_class, nom_classes
 
 
-def load_dataset(target,Undersample):
+def load_dataset(target,undersample):
 
   ##### Target #######
   # Les cibles peuvent être : 'Flag' , 'Success' , 'DeltaZ'
@@ -139,7 +139,7 @@ def load_dataset(target,Undersample):
 	X_train, X_test, target_train, target_test = train_test_split(pdfs, y, test_size=0.15)
 	X_train, X_validation, target_train, target_validation = train_test_split(X_train, target_train, test_size=0.15)
 
-	if Undersample :
+	if undersample :
 		rus = RandomUnderSampler(random_state=0)
 		X_train, target_train = rus.fit_resample(X_train, target_train)
 		X_test, target_test = rus.fit_resample(X_test, target_test)

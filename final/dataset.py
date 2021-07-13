@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
 
 
-def load_processed(target, undersample)
+def load_processed(target, Undersample)
     if undersample:
         eq = 'balanced'
     else:
@@ -20,11 +20,11 @@ def load_processed(target, undersample)
 
     if target == 'Flag3':
         nb_class = 3
-        nom_classes = ["flags 1", "flags 2-9", "flags 3-4"]
+        nom_classes = ["Flag 1", "Flags 2-9", "Flags 3-4"]
 
     if target == 'Success3':
         nb_class = 3
-        nom_classes = ["Success", "Spurious", "Missmatch"]
+        nom_classes = ["Success", "Spurious", "Mismatch"]
 
     name = '../data/' + target + '/' + eq
     print(name)
@@ -61,7 +61,7 @@ def load_dataset(target,Undersample):
 		nom_classes = ["Flag 9", "Flag 1", "Flag 2", "Flag 3", "Flag 4"]
 
 
-	elif target == 'Success_2':
+	elif target == 'Success2':
 		flag=attributes[:,5]
 		y=[]
 
@@ -73,12 +73,12 @@ def load_dataset(target,Undersample):
 
 			y.append(nw_fl)
 
-		nom_classes = ["Success", "Spurious/missmatch"]
+		nom_classes = ["Success", "Spurious/Mismatch"]
 
 
 
 
-	elif target == 'Flag_class':
+	elif target == 'Flag3':
 		flag=np.floor(attributes[:,-1]).astype(int)
 		y=[]
 
@@ -93,7 +93,7 @@ def load_dataset(target,Undersample):
 
 			y.append(nw_fl)
 
-		nom_classes = ["flags 1", "flags 2-9", "flags 3-4"]
+		nom_classes = ["Flag 1", "Flags 2-9", "Flags 3-4"]
 
 
 	elif target == 'DeltaZ':
@@ -114,7 +114,7 @@ def load_dataset(target,Undersample):
 
 		nom_classes= ["Deltaz<1e-3", "Deltaz>=1e-3"]
 
-	elif target == 'Success_3':
+	elif target == 'Success3':
 		flag=attributes[:,5]
 		y=[]
 
@@ -128,10 +128,10 @@ def load_dataset(target,Undersample):
 
 			y.append(nw_fl)
 
-		nom_classes = ["Success", "Spurious" , "Missmatch"]
+		nom_classes = ["Success", "Spurious" , "Mismatch"]
 
 	else:
-		raise ValueError("Choisis la target = 'Flag' , 'Success_2' , 'Flag_class' , 'DeltaZ' , 'Sucess_3' ")
+		raise ValueError("Choisis la target = 'Flag' , 'Success2' , 'Flag3' , 'DeltaZ' , 'Success3' ")
 
 
 	nb_classes=len(np.unique(y))

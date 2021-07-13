@@ -25,7 +25,7 @@ def make_CNN(input_shape, num_classes):
     return model
 
 
-def makeCnnGruModel2(input, output, dropout=.2):
+def makeCnnGru(input, output, dropout=.2):
     model = Sequential()
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu', input_shape=input))
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu'))
@@ -57,7 +57,7 @@ def makeCnnGruModel2(input, output, dropout=.2):
     return model
 
 
-def LSTM_CNN_redshift(nb_class):
+def makeLSTMCNN(nb_class):
     dim=(17908, 1)#,np.shape(X_train)[1:]
 #    print(nb_class)
 

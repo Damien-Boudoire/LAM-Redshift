@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
 
 
-def load_processed(target, Undersample)
+def load_processed(target, undersample)
     if undersample:
         eq = 'balanced'
     else:

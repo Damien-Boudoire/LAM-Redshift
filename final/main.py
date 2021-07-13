@@ -76,11 +76,11 @@ if __name__ == '__main__':
 
     # we load the data using different function depending we are using preprocessed dataset or not
     if preprocessed == "preprocessed":
-        X_train, X_validation ,X_test, target_train, target_validation, target_test,\
-        Y_train , Y_validation, Y_test , nb_classes, nom_classes = dataset.load_processed(target, undersampled == "undersampled")
+        X_train, X_validation , X_test, target_train, target_validation, target_test, \
+        Y_train , Y_validation, Y_test , classes_nb, classes_names = dataset.load_processed(target, undersampled == "undersampled")
     else:
-        X_train, X_validation ,X_test, target_train, target_validation, target_test,\
-        Y_train , Y_validation, Y_test , nb_classes, nom_classes =dataset.load_dataset(target, undersampled == "undersampled")
+        X_train, X_validation , X_test, target_train, target_validation, target_test, \
+        Y_train , Y_validation, Y_test , classes_nb, classes_names =dataset.load_dataset(target, undersampled == "undersampled")
 
     X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
     X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
@@ -88,19 +88,19 @@ if __name__ == '__main__':
 
     #we build the model
     if modelName == "CNN3":
-        model = make_CNN_3layers(input_shape, nb_classes)
+        model = make_CNN_3layers(input_shape, classes_nb)
     elif modelName == "CNN8":
-        model = make_CNN_8layers(input_shape, nb_classes)
+        model = make_CNN_8layers(input_shape, classes_nb)
     elif modelName == "CNNGRU":
-        model = make_CNNGRU(input_shape, nb_classes)
+        model = make_CNNGRU(input_shape, classes_nb)
     elif modelName == "CNNLSTM":
-        model = make_CNNLSTM(input_shape, nb_classes)
+        model = make_CNNLSTM(input_shape, classes_nb)
     else:
         print("Bad model name")
         exit(-1)
 
     #string we will use to name the output files
-    file_name = f"saved/{modelName}_{target}_{undersampled}_{epoch}"
+    file_name = f"output/{modelName}_{target}_{undersampled}_{epoch}"
 
     #name of the file where we will save the best state achieved during training
     model_file = file_name + ".h5"
@@ -121,4 +121,4 @@ if __name__ == '__main__':
     model =keras.models.load_model(model_file)
 
     #we test the model and save its performance in a npy file
-    save_in_dict(model, X_test, target_test, X_train, target_train, history, nb_classes, nom_classes, file_name)
+    save_in_dict(model, X_test, target_test, X_train, target_train, history, classes_nb, classes_names, file_name)

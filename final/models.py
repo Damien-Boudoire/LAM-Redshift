@@ -5,7 +5,7 @@ from keras.layers import Conv1D, GRU, LSTM, MaxPooling1D, Dense, Flatten, Input,
 def make_CNN_3layers(input_shape, nb_class):
     """
     Cette fonction crée le premier model de CNN de notre étude.
-    C'est un modèle simple mais qui donne déjà de bon résultat en 2 classes
+    C'est un modèle simple mais qui donne déjà de bon résultats en 2 classes
     et a l'avantage d'être très rapide à apprendre.
 
     Parameters
@@ -19,7 +19,7 @@ def make_CNN_3layers(input_shape, nb_class):
 
     Returns
     -------
-    Le CNN 3 couches dans un model keras.
+    model : Le CNN 3 couches dans un model keras.
 
     """
     
@@ -134,7 +134,7 @@ def make_CNN_8layers(input_shape, nb_class):
 
     Returns
     -------
-    Le CNN 8 couches dans un model keras.
+    model : Le CNN 8 couches dans un model keras.
 
     """
     model= Sequential()
@@ -187,7 +187,7 @@ def make_CNN_2inputs(input_shape, nb_class):
 
     Returns
     -------
-    Le CNN à 2 entrées dans un model keras.
+    model : Le CNN à 2 entrées dans un model keras.
 
     """    
     

@@ -25,39 +25,6 @@ def make_CNN(input_shape, num_classes):
     return model
 
 
-
-def makeCnnGruModel2(input, output, dropout=.2):
-    model = Sequential()
-    model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu', input_shape=input))
-    model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu'))
-    model.add(MaxPooling1D(pool_size=2))
-    model.add(Conv1D(64, kernel_size=6, padding='same', activation='relu'))
-    model.add(Conv1D(64, kernel_size=6, padding='same', activation='relu'))
-    model.add(MaxPooling1D(pool_size=2))
-    model.add(Conv1D(128, kernel_size=5, padding='same', activation='relu'))
-    model.add(Conv1D(128, kernel_size=5, padding='same', activation='relu'))
-    model.add(MaxPooling1D(pool_size=2))
-    model.add(Conv1D(256, kernel_size=3, padding='same', activation='relu'))
-    model.add(Conv1D(256, kernel_size=3, padding='same', activation='relu'))
-    model.add(MaxPooling1D(pool_size=2))
-
-    model.add(GRU(512, return_sequences=True))
-    model.add(GRU(256, return_sequences=True))
-    model.add(GRU(128, return_sequences=True))
-    model.add(GRU(64))
-    model.add(Dropout(dropout))
-    model.add(Flatten())
-
-    # Output layer
-    if output > 2:
-        print("Model Categorical")
-        model.add(Dense(units=output, activation="softmax"))
-    else:
-        print("Model Binary")
-        model.add(Dense(units=1, activation="sigmoid"))
-    return model
-
-
 def makeCnnGruModel2(input, output, dropout=.2):
     model = Sequential()
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu', input_shape=input))

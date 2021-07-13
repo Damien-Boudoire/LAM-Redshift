@@ -4,7 +4,7 @@ from numpy.random import seed
 import tensorflow as tf
 from tensorflow.python.keras.backend import set_session
 
-from models import make_CNN, makeCnnGru, makeLSTMCNN
+from models import make_CNN, makeCnnGRU, makeCnnLSTM
 
 config = tf.compat.v1.ConfigProto()
     config.gpu_options.per_process_gpu_memory_fraction = 0.3

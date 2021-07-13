@@ -25,7 +25,7 @@ def make_CNN(input_shape, num_classes):
     return model
 
 
-def makeCnnGRU(input, output, dropout=.2):
+def make_CNNGRU(input, output, dropout=.2):
     model = Sequential()
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu', input_shape=input))
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu'))
@@ -57,7 +57,7 @@ def makeCnnGRU(input, output, dropout=.2):
     return model
 
 
-def makeCnnLSTM(nb_class):
+def make_CNNLSTM(nb_class):
     dim=(17908, 1)#,np.shape(X_train)[1:]
 #    print(nb_class)
 

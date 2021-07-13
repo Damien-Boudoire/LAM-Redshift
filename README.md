@@ -1,13 +1,13 @@
 # LAM-Redshift
 
 
-Fichier "main.py"
+## Fichier "main.py"
 
 
 
-Fichier "models.py"
+## Fichier "models.py"
 
-# make_CNN
+### make_CNN
 Cette fonction crée le premier model de CNN de notre étude.
 C'est un modèle simple mais qui donne déjà de bon résultat en 2 classes et a l'avantage d'être très rapide à apprendre.
 
@@ -25,7 +25,7 @@ C'est un modèle simple mais qui donne déjà de bon résultat en 2 classes et a
     Return model
     -------
 
-# make_CNNGru
+### make_CNNGru
 Cette fonction est le modèle CNN-Gru de notre étude.
     
     make_CNNGRU(input, output, dropout=.2)
@@ -42,7 +42,7 @@ Cette fonction est le modèle CNN-Gru de notre étude.
     Return model
     -------
 
-# make_CNNLSTM
+### make_CNNLSTM
 Cette fonction est le modèle CNN-LSTM de notre étude.
     
     make_CNNGRU(input, output)

@@ -7,7 +7,7 @@ from tensorflow.python.keras.backend import set_session
 from keras.callbacks import LearningRateScheduler, ReduceLROnPlateau, ModelCheckpoint, EarlyStopping
 
 import dataset
-from models import make_CNN_3layers, make_CNN_8layers, makeCNNGRU, makeCNNLSTM
+from models import make_CNN_3layers, make_CNN_8layers, make_CNNGRU, make_CNNLSTM
 from report.save_in_dict import Save_in_dict
 
 config = tf.compat.v1.ConfigProto()

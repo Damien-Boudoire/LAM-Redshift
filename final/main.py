@@ -15,7 +15,7 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.3
 set_session(tf.compat.v1.Session(config=config))
 
 seed(1)
-tensorflow.random.set_seed(1)
+tf.random.set_seed(1)
 
 #dimension of our data
 input_shape = (17908, 1)

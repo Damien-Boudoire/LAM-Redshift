@@ -5,7 +5,7 @@ from imblearn.under_sampling import RandomUnderSampler
 
 data_path = "./data/"
 
-def load_processed(target, undersample)
+def load_processed(target, undersample):
     if undersample:
         eq = 'balanced'
     else:

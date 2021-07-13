@@ -51,15 +51,19 @@ if __name__ == '__main__':
     try:
         modelName = sys.argv[1]
         if modelName not in ["CNN3", "CNN8", "CNNGRU", "CNNLSTM"]:
+            print(modelName)
             raise Exception
         preprocessed = sys.argv[2]
         if preprocessed not in ["preprocessed", "raw"]:
+            print(preprocessed)
             raise Exception
         target = sys.argv[3]
         if target not in ["DeltaZ", "Success2", "Success3", "Flag3"]:
+            print(target)
             raise Exception
         undersampled = sys.argv[4]
         if undersampled not in ["undersampled", "full"]:
+            print(undersampled)
             raise Exception
         epoch = int(sys.argv[5])
         batch_size = int(sys.argv[6])

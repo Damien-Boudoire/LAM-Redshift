@@ -1,5 +1,7 @@
 import sys
 
+import numpy as np
+
 from numpy.random import seed
 import tensorflow as tf
 from tensorflow.python.keras.backend import set_session

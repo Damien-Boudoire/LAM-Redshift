@@ -8,10 +8,11 @@ Fichier "main.py"
 Fichier "models.py"
 
 make_CNN(input_shape, num_classes)
-"""
+
     Cette fonction crée le premier model de CNN de notre étude.
     C'est un modèle simple mais qui donne déjà de bon résultat en 2 classes
     et a l'avantage d'être très rapide à apprendre.
+"""
 
     Parameters
     ----------

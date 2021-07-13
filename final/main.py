@@ -7,12 +7,12 @@ from tensorflow.python.keras.backend import set_session
 from keras.callbacks import LearningRateScheduler, ReduceLROnPlateau, ModelCheckpoint, EarlyStopping
 
 import dataset
-from models import make_CNN, makeCnnGRU, makeCnnLSTM
+from models import make_CNN_3layers, make_CNN_8layers, makeCNNGRU, makeCNNLSTM
 from report.save_in_dict import Save_in_dict
 
 config = tf.compat.v1.ConfigProto()
-    config.gpu_options.per_process_gpu_memory_fraction = 0.3
-    set_session(tf.compat.v1.Session(config=config))
+config.gpu_options.per_process_gpu_memory_fraction = 0.3
+set_session(tf.compat.v1.Session(config=config))
 
 seed(1)
 tensorflow.random.set_seed(1)
@@ -37,8 +37,9 @@ if __name__ == '__main__':
     ### main function of this application
     #   usage : python main.py model_name target_name (raw | preprocessed) (full | undersampled) epoch batch
     #
-    #   mode_name = CNN | CNNGRU | CNNLSTM
+    #   mode_name = CNN3 | CNN8 | CNNGRU | CNNLSTM
     #       the model to train and test
+    #   target_name : labels to use for classification
     #   raw : build the dataset from the original files
     #   preprocessed : use the built datasets in data/
     #   undersampled : remove data to get balanced classes
@@ -68,10 +69,12 @@ if __name__ == '__main__':
         Y_train , Y_validation, Y_test , nb_classes, nom_classes =dataset.load_dataset(target, undersampled == "undersampled")
 
     #we build the model
-    if modelName == "CNN":
-        model = make_CNN(input_shape, nb_classes)
+    if modelName == "CNN3":
+        model = make_CNN_3layers(input_shape, nb_classes)
+    elif modelName == "CNN8":
+        model = make_CNN_8layers(input_shape, nb_classes)
     elif modelName == "CNNGRU":
-        model = make_CNN(input_shape, nb_classes)
+        model = make_CNNGRU(input_shape, nb_classes)
     elif modelName == "CNNLSTM":
         model = makeCnnLSTM(input_shape, nb_classes)
     else:

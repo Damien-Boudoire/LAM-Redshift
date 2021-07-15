@@ -123,8 +123,7 @@ def undersample(x, y, attributes):
     shuffle_sets(x, y, attributes)
     nb_class = np.unique(y)
     class_indexes = [np.where(y == cl)[0] for cl in range(nb_class)]
-    class_min = min(enumerate(class_indexes), key=lambda x: len(x[1]))
-    min_length = len(class_indexes[class_min])
+    min_length = min([len(indexes) for indexes in class_indexes])
 
     resized_classes = [indexes[:min_length] for indexes in class_indexes]
 

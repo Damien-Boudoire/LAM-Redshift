@@ -45,9 +45,9 @@ if __name__ == '__main__':
         if target not in ["DeltaZ", "Success2", "Success3", "Flag3"]:
             print(target)
             raise Exception
-        undersample = sys.argv[2]
-        if undersample not in ["undersampled", "full"]:
-            print(undersample)
+        undersampled = sys.argv[2]
+        if undersampled not in ["undersampled", "full"]:
+            print(undersampled)
             raise Exception
         epoch = int(sys.argv[3])
         batch_size = int(sys.argv[4])
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # we load the data
     X_train, X_validation, X_test, target_train, target_validation, target_test, \
         Y_train, Y_validation, Y_test, Redshifts_train, Redshifts_validation, Redshifts_test, \
-        classes_nb, classes_names = dataset.load_processed_withRedshifts(target, undersample = undersample)
+        classes_nb, classes_names = dataset.load_processed_withRedshifts(target, undersampled == "undersampled")
 
 
     X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     model = make_CNN_2inputs(input_shape, classes_nb)
 
     #string we will use to name the output files
-    file_name = f"output/CNN_2inputs_{target}_{undersample}"
+    file_name = f"output/CNN_2inputs_{target}_{undersampled}"
 
     #name of the file where we will save the best state achieved during training
     model_file = file_name + ".h5"

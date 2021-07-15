@@ -79,7 +79,7 @@ def save_in_dict(model, X_test, Y_test, X_train, Y_train, history, class_nb, cla
 
 def save_in_dict_2inputs(model, X_test, Redshifts_test, Y_test, X_train, Redshifts_train, Y_train, history, class_nb, class_names, file_name):
     """
-    Même fonction que save_in_dict mais permet de sauvegarder les infos d'un modèle à 2 entrées
+    Meme fonction que save_in_dict mais permet de sauvegarder les infos d'un modèle à 2 entrées
 
     Parameters
     ----------

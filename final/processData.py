@@ -82,7 +82,7 @@ def load_raw_data(target):
     else:
         raise ValueError("Choisis la target = 'Flag' , 'Success2' , 'Flag3' , 'DeltaZ' , 'Success3' ")
 
-    return x, y, attributes
+    return x, np.asarray(y), attributes
 
 
 def shuffle_sets(x, y, attributes):

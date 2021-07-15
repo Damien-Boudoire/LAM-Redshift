@@ -127,10 +127,10 @@ Cette fonction est le modèle CNN-LSTM de notre étude.
     model
 
 ## Report
-Ce dossier sert pour l'affichage des métriques
+Ce dossier sert pour l'affichage des résultats
 
 ### save_in_dict
-Ce code sert à sauvegardé les résultats d'un modèle sous la forme d'un dictionnaire pour avior accès a toutes les informations et les afficher avec fig.py
+Ce code sert à sauvegarder les résultats d'un modèle sous la forme d'un dictionnaire pour avoir accès a toutes les informations et les afficher avec fig.py
 
     save_in_dict(model, X_test, Y_test, X_train, Y_train, history, nb_class, nom_classes, file_name)
     

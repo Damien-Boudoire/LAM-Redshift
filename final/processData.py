@@ -165,9 +165,9 @@ if __name__ == '__main__':
         exit(-1)
 
     if to_balance == "balance":
-        X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test = split_sets(x, y, attributes)
-    else:
         X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test = undersample(x, y, attributes)
+    else:
+        X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test = split_sets(x, y, attributes)
 
     outDirectory = f"{directoryPath}{target}/{to_balance}/"
     outTrain = f"{outDirectory}TRAIN/"

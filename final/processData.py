@@ -122,7 +122,7 @@ def split_sets(x, y, attributes, test_ratio=.15, valid_ratio=.15):
 def undersample(x, y, attributes):
     shuffle_sets(x, y, attributes)
     nb_class = np.unique(y)
-    class_indexes = [np.where(y == cl) for cl in range(nb_class)]
+    class_indexes = [np.where(y == cl)[0].tolist() for cl in range(nb_class)]
     min_length = min([len(indexes) for indexes in class_indexes])
 
     resized_classes = [indexes[:min_length] for indexes in class_indexes]

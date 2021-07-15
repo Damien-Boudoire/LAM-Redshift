@@ -86,7 +86,7 @@ def load_raw_data(target):
 
 
 def shuffle_sets(x, y, attributes):
-    indexes = range(len(x))
+    indexes = np.arange(len(x)).tolist()
     np.random.shuffle(indexes)
 
     print(indexes)

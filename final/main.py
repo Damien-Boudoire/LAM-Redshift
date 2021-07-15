@@ -119,6 +119,9 @@ if __name__ == '__main__':
 
     #we load the best state achieved during training
     model =keras.models.load_model(model_file)
+    
+    # we evaluate the best state model with the test dataset
+    model.evaluate(X_test, Y_test, verbose =2)
 
     #we test the model and save its performance in a npy file
     save_in_dict(model, X_test, target_test, X_train, target_train, history, classes_nb, classes_names, file_name)

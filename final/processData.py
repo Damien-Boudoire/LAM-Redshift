@@ -1,4 +1,5 @@
 import sys
+import os
 import numpy as np
 
 directoryPath = "data/"
@@ -176,14 +177,20 @@ if __name__ == '__main__':
     outValid = f"{outDirectory}VALID/"
     outTest = f"{outDirectory}TEST/"
 
+    if not os.path.isdir(outTrain):
+        os.makedirs(outTrain)
     np.save(f"{outTrain}X.npy", X_train, allow_pickle=True)
     np.save(f"{outTrain}Y.npy", Y_train, allow_pickle=True)
     np.save(f"{outTrain}attributes.npy", att_train, allow_pickle=True)
 
+    if not os.path.isdir(outValid):
+        os.makedirs(outValid)
     np.save(f"{outValid}X.npy", X_valid, allow_pickle=True)
     np.save(f"{outValid}Y.npy", Y_valid, allow_pickle=True)
     np.save(f"{outValid}attributes.npy", att_valid, allow_pickle=True)
 
+    if not os.path.isdir(outTest):
+        os.makedirs(outTest)
     np.save(f"{outTest}X.npy", X_test, allow_pickle=True)
     np.save(f"{outTest}Y.npy", Y_test, allow_pickle=True)
     np.save(f"{outTest}attributes.npy", att_test, allow_pickle=True)

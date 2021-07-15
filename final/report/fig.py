@@ -2,21 +2,11 @@
 #from CNN1D_redshift import CNN1D_redshift
 import sys
 import os
-import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
-import collections
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.layers import Input, Dense, Dropout, Flatten
-from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras import metrics
-import matplotlib.pyplot as plt
-from sklearn.model_selection import GridSearchCV
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from imblearn.under_sampling import RandomUnderSampler
+
 import seaborn as sns
 
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 file=sys.argv[1] #'BigCnnGRU_256_3_60_DeltaZ_True'
 

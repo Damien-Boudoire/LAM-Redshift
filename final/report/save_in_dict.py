@@ -116,8 +116,6 @@ def save_in_dict_2inputs(model, X_test, Redshifts_test, Y_test, X_train, Redshif
     y_pred_test = np.argmax(y_pred_test, axis=1)
     y_pred_train = np.argmax(y_pred_train, axis=1)
 
-    print(Y_test)
-    print(y_pred_test)
     conf_matrix_test = confusion_matrix(Y_test, y_pred_test)
     conf_matrix_train = confusion_matrix(Y_train, y_pred_train)
 

@@ -90,6 +90,8 @@ def shuffle_sets(x, y, attributes):
 
     print(indexes.shape)
     print(indexes)
+    print(x.shape)
+    print(y.shape)
     x = x[indexes]
     y = y[indexes]
     attributes = attributes[indexes]

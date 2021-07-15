@@ -89,10 +89,6 @@ def load_raw_data(target):
 def shuffle_sets(x, y, attributes):
     indexes = np.random.permutation(len(x))
 
-    print(indexes.shape)
-    print(indexes)
-    print(x.shape)
-    print(y.shape)
     x = x[indexes]
     y = y[indexes]
     attributes = attributes[indexes]
@@ -162,6 +158,8 @@ if __name__ == '__main__':
     try:
         target = sys.argv[1]
         to_balance = sys.argv[2]
+        if to_balance not in ["balance", "unbalance"]:
+            raise Exception("Bad parameter value")
         x, y, attributes = load_raw_data(target)
     except Exception as e:
         print(e)

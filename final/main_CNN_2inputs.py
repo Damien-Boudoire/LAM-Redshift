@@ -10,7 +10,7 @@ from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint, EarlyStopping
 
 import dataset
 from models import make_CNN_2inputs
-from report.save_in_dict import save_in_dict
+from report.save_in_dict import save_in_dict_2inputs
 
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
@@ -98,4 +98,4 @@ if __name__ == '__main__':
     model.evaluate([X_test, Redshifts_test], Y_test, verbose =2)
     
     #we test the model and save its performance in a npy file
-#    save_in_dict(model, X_test, target_test, X_train, target_train, history, classes_nb, classes_names, file_name)
+    save_in_dict_2inputs(model, X_test, Redshifts_test, Y_test, X_train, Redshifts_train, target_train, history, classes_nb, classes_names, file_name)

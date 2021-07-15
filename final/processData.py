@@ -89,6 +89,7 @@ def shuffle_sets(x, y, attributes):
     indexes = np.arange(len(x))
     np.random.shuffle(indexes)
 
+    print(indexes)
     x = x[indexes]
     y = y[indexes]
     attributes = attributes[indexes]

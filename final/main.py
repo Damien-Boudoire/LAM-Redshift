@@ -107,14 +107,14 @@ if __name__ == '__main__':
 
     callbacks = [
         learning_rate_schedulers[0],                                                # function updating learning rate
-        ModelCheckpoint(model_file, save_best_only = True, monitor = "val_loss"),   # save better model
+        ModelCheckpoint(model_file, save_best_only=True, monitor="val_loss"),       # save better model
         EarlyStopping(monitor="val_loss", patience=10, verbose=1)                   # stop training when no more learning
     ]
 
     model.compile(optimizer, loss_function, metrics=metrics)
 
     #training the model on dataset
-    history =model.fit(X_train, Y_train, validation_data=(X_validation, Y_validation),
+    history = model.fit(X_train, Y_train, validation_data=(X_validation, Y_validation),
                        epochs=epoch, batch_size=batch_size, callbacks=callbacks)
 
     #we load the best state achieved during training

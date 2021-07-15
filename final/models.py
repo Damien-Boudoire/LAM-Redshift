@@ -47,7 +47,7 @@ def make_CNN_3layers(input_shape, nb_class):
 
 
 
-def make_CNNGRU(input, output, dropout=.2):
+def make_CNNGRU(input_shape, nb_class):
     model = Sequential()
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu', input_shape=input))
     model.add(Conv1D(32, kernel_size=10, padding='same', activation='relu'))
@@ -66,16 +66,11 @@ def make_CNNGRU(input, output, dropout=.2):
     model.add(GRU(256, return_sequences=True))
     model.add(GRU(128, return_sequences=True))
     model.add(GRU(64))
-    model.add(Dropout(dropout))
+
     model.add(Flatten())
 
     # Output layer
-    if output > 2:
-        print("Model Categorical")
-        model.add(Dense(units=output, activation="softmax"))
-    else:
-        print("Model Binary")
-        model.add(Dense(units=1, activation="sigmoid"))
+    model.add(Dense(units=nb_class, activation="softmax"))
     return model
 
 

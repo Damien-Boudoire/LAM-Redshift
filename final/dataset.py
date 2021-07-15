@@ -157,21 +157,19 @@ def load_dataset(target,undersample):
     ##### Target #######
   # Les cibles peuvent être : 'Flag' , 'Success' , 'DeltaZ'
 
-	pdf_zgrid=np.load(data_path + 'zgrid32.npy')
-	attributes=np.load(data_path + 'attributes32.npy', allow_pickle=True)
-	pdfs=np.load(data_path + 'pdfs32.npy', allow_pickle=True)
-
+	pdf_zgrid = np.load(data_path + 'zgrid32.npy')
+	attributes = np.load(data_path + 'attributes32.npy', allow_pickle=True)
+	pdfs = np.load(data_path + 'pdfs32.npy', allow_pickle=True)
 
 	if target == 'Flag':
-		y=np.floor(attributes[:,-1]).astype(int)
-		y=np.where(y==9, 0, y)
+		y = np.floor(attributes[:,-1]).astype(int)
+		y = np.where(y == 9, 0, y)
 
 		nom_classes = ["Flag 9", "Flag 1", "Flag 2", "Flag 3", "Flag 4"]
 
-
 	elif target == 'Success2':
-		flag=attributes[:,5]
-		y=[]
+		flag = attributes[:,5]
+		y = []
 
 		for i in flag:
 			if i =='success':
@@ -183,12 +181,9 @@ def load_dataset(target,undersample):
 
 		nom_classes = ["Success", "Spurious/Mismatch"]
 
-
-
-
 	elif target == 'Flag3':
-		flag=np.floor(attributes[:,-1]).astype(int)
-		y=[]
+		flag = np.floor(attributes[:,-1]).astype(int)
+		y = []
 
 		for i in flag:
 
@@ -203,11 +198,10 @@ def load_dataset(target,undersample):
 
 		nom_classes = ["Flag 1", "Flags 2-9", "Flags 3-4"]
 
-
 	elif target == 'DeltaZ':
-		flag=attributes[:,3]
+		flag = attributes[:,3]
 
-		y=[]
+		y = []
 
 		flag=abs(flag)
 
@@ -227,22 +221,22 @@ def load_dataset(target,undersample):
 		y=[]
 
 		for i in flag:
-			if i =='success':
-				nw_fl=0
+			if i == 'success':
+				nw_fl = 0
 			elif i == 'spurious':
-				nw_fl=1
+				nw_fl = 1
 			else:
-				nw_fl=2
+				nw_fl = 2
 
 			y.append(nw_fl)
 
-		nom_classes = ["Success", "Spurious" , "Mismatch"]
+		nom_classes = ["Success", "Spurious", "Mismatch"]
 
 	else:
 		raise ValueError("Choisis la target = 'Flag' , 'Success2' , 'Flag3' , 'DeltaZ' , 'Success3' ")
 
 
-	nb_classes=len(np.unique(y))
+	nb_classes = len(np.unique(y))
 
 	X_train, X_test, target_train, target_test = train_test_split(pdfs, y, test_size=0.15)
 	X_train, X_validation, target_train, target_validation = train_test_split(X_train, target_train, test_size=0.15)

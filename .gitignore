@@ -130,3 +130,6 @@ dmypy.json
 
 #idea files
 .idea/
+
+#don't track content of data/
+data/

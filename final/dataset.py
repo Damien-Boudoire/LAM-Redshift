@@ -424,6 +424,7 @@ def load_processed_withRedshifts(target, undersample, input_data='logPDF', index
     target_validation = np.load(name + '/VALID/Y.npy')
     attributes_validation = np.load(name + '/VALID/attributes.npy', allow_pickle=True)
     
+    ### Indice du Redshift ou Redshift ###
     if index:
         Redshifts_train = Redshift_indexes(zgrid, attributes_train)
         Redshifts_test = Redshift_indexes(zgrid, attributes_test)

@@ -126,6 +126,18 @@ Cette fonction est le modèle CNN-LSTM de notre étude.
     -------
     model
 
+## Fichier "main_CNN_2inputs.py"
+Ce code est une version modifié du main pour tester le réseau CNN à 2 entrées.
+Il s'utilise comme suit:
+
+python main_CNN_2inputs.py target_name (full | undersampled) epoch batch
+
+target_name : labels à utiliser pour la classification (DeltaZ | Success2 | Success3 | Flag3)
+undersampled : utilise les données avec classes rééquilibrées (sous-échantillonées)
+full : utilise l'ensemble des données
+epoch : nombre d'epochs pour l'apprentissage
+batch : taille des batchs
+
 ## Report
 Ce dossier sert pour l'affichage des résultats
 

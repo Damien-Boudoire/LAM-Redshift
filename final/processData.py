@@ -136,17 +136,17 @@ def undersample(x, y, attributes):
         temp_X_valid, temp_Y_valid, temp_att_valid, \
         temp_X_test, temp_Y_test, temp_att_test = split_sets(x[resized], y[resized], attributes[resized])
 
-        X_train = np.stack((X_train, temp_X_train))
-        Y_train = np.stack((Y_train, temp_Y_train))
-        att_train = np.stack((att_train, temp_att_train))
+        X_train += temp_X_test.tolist()
+        Y_train += temp_Y_train.tolist()
+        att_train += temp_att_train.tolist()
 
-        X_valid = np.stack((X_valid, temp_X_valid))
-        Y_valid = np.stack((Y_valid, temp_Y_valid))
-        att_valid = np.stack((att_valid, temp_att_valid))
+        X_valid += temp_X_valid.tolist()
+        Y_valid += temp_Y_valid.tolist()
+        att_valid += temp_att_valid.tolist()
 
-        X_test = np.stack((X_test, temp_X_test))
-        Y_test = np.stack((Y_test, temp_Y_test))
-        att_test = np.stack((att_test, temp_att_test))
+        X_test += temp_X_test.tolist()
+        Y_test += temp_Y_test.tolist()
+        att_test += temp_att_test.tolist()
 
     return np.asarray(X_train), np.asarray(Y_train), np.asarray(att_train), \
            np.asarray(X_valid), np.asarray(Y_valid), np.asarray(att_valid), \

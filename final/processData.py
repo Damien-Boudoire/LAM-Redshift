@@ -148,9 +148,9 @@ def undersample(x, y, attributes):
         Y_test += temp_Y_test.tolist()
         att_test += temp_att_test.tolist()
 
-    return np.asarray(X_train), np.asarray(Y_train), np.asarray(att_train), \
-           np.asarray(X_valid), np.asarray(Y_valid), np.asarray(att_valid), \
-           np.asarray(X_test), np.asarray(Y_test), np.asarray(att_test),
+    return np.asarray(X_train, dtype=object), np.asarray(Y_train, dtype=object), np.asarray(att_train, dtype=object), \
+           np.asarray(X_valid, dtype=object), np.asarray(Y_valid, dtype=object), np.asarray(att_valid, dtype=object), \
+           np.asarray(X_test, dtype=object), np.asarray(Y_test, dtype=object), np.asarray(att_test, dtype=object),
 
 
 if __name__ == '__main__':

@@ -127,9 +127,15 @@ def undersample(x, y, attributes):
 
     resized_classes = [indexes[:min_length] for indexes in class_indexes]
 
-    X_train = Y_train = att_train = []
-    X_valid = Y_valid = att_valid = []
-    X_test  = Y_test  = att_test = []
+    X_train = []
+    Y_train = []
+    att_train = []
+    X_valid = []
+    Y_valid = []
+    att_valid = []
+    X_test  = []
+    Y_test  = []
+    att_test = []
 
     for resized in resized_classes:
         temp_X_train, temp_Y_train, temp_att_train, \

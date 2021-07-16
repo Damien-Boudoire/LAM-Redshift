@@ -136,7 +136,7 @@ def undersample(x, y, attributes):
         temp_X_valid, temp_Y_valid, temp_att_valid, \
         temp_X_test, temp_Y_test, temp_att_test = split_sets(x[resized], y[resized], attributes[resized])
 
-        X_train.append(temp_X_test)
+        X_train.append(temp_X_train)
         Y_train.append(temp_Y_train)
         att_train.append(temp_att_train)
 
@@ -148,9 +148,9 @@ def undersample(x, y, attributes):
         Y_test.append(temp_Y_test)
         att_test.append(temp_att_test)
 
-    return np.concatenate(X_train), np.concatenate(Y_train), np.concatenate(att_train), \
-           np.concatenate(X_valid), np.concatenate(Y_valid), np.concatenate(att_valid), \
-           np.concatenate(X_test), np.concatenate(Y_test), np.concatenate(att_test),
+    return np.stack(X_train), np.stack(Y_train), np.stack(att_train), \
+           np.stack(X_valid), np.stack(Y_valid), np.stack(att_valid), \
+           np.stack(X_test), np.stack(Y_test), np.stack(att_test),
 
 
 if __name__ == '__main__':

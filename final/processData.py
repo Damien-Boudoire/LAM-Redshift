@@ -148,9 +148,23 @@ def undersample(x, y, attributes):
         Y_test.append(temp_Y_test)
         att_test.append(temp_att_test)
 
-    return np.concatenate(X_train), np.concatenate(Y_train), np.concatenate(att_train), \
-           np.concatenate(X_valid), np.concatenate(Y_valid), np.concatenate(att_valid), \
-           np.concatenate(X_test), np.concatenate(Y_test), np.concatenate(att_test),
+    X_train = np.concatenate(X_train)
+    Y_train = np.concatenate(Y_train)
+    att_train = np.concatenate(att_train)
+
+    X_valid = np.concatenate(X_valid)
+    Y_valid = np.concatenate(Y_valid)
+    att_valid = np.concatenate(att_valid)
+
+    X_test = np.concatenate(X_test)
+    Y_test = np.concatenate(Y_test)
+    att_test = np.concatenate(att_test)
+
+    X_train, Y_train, att_train = shuffle_sets(X_train, Y_train, att_train)
+    X_valid, Y_valid, att_valid = shuffle_sets(X_valid, Y_valid, att_valid)
+    X_test, Y_test, att_test = shuffle_sets(X_test, Y_test, att_test)
+
+    return X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test
 
 
 if __name__ == '__main__':

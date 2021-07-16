@@ -138,6 +138,7 @@ def undersample(x, y, attributes):
 
         print(temp_X_train.shape)
         print(temp_X_train)
+        print(X_train)
 
         X_train.append(temp_X_train)
         Y_train.append(temp_Y_train)

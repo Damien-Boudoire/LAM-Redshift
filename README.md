@@ -177,4 +177,8 @@ Ce code sert à sauvegarder les résultats d'un modèle sous la forme d'un dicti
 Ce code sert à afficher sous la forme d'un subplot, les 2 matrices de confusions ("Train" / "Test"), les courbes d'apprentissages (Accuracy, Loss, Validation Accuracy, Validation Loss) en fonction du nombre d'epochs et les différentes métriques de l'apprentissage
 
     
+## processData.py
+Ce code est celui qui a permis de découper les données qui ont été pré-découpées pour lancer les tests comparatifs
 
+## main_CNN_2inputs.py
+Ce code est le modèle CNN simple avec en entrée la valeur du redshift

@@ -148,9 +148,9 @@ def undersample(x, y, attributes):
         Y_test.append(temp_Y_test)
         att_test.append(temp_att_test)
 
-    return np.stack(X_train), np.stack(Y_train), np.stack(att_train), \
-           np.stack(X_valid), np.stack(Y_valid), np.stack(att_valid), \
-           np.stack(X_test), np.stack(Y_test), np.stack(att_test),
+    return np.concatenate(X_train), np.concatenate(Y_train), np.concatenate(att_train), \
+           np.concatenate(X_valid), np.concatenate(Y_valid), np.concatenate(att_valid), \
+           np.concatenate(X_test), np.concatenate(Y_test), np.concatenate(att_test),
 
 
 if __name__ == '__main__':

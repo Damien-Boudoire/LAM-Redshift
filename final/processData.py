@@ -150,6 +150,8 @@ def undersample(x, y, attributes):
         Y_test.append(temp_Y_test)
         att_test.append(temp_att_test)
 
+    print(X_train)
+
     X_train = np.concatenate(X_train)
     Y_train = np.concatenate(Y_train)
     att_train = np.concatenate(att_train)

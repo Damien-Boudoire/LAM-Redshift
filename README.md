@@ -2,13 +2,27 @@
 
 
 ## Fichier "main.py"
-Ce code est le script général qui appelle toutes les autres fonctions
+Ce code est le script principal qui appelle toutes les autres fonctions. Il s'utilise de la manière suivante :  
+
+python main.py model_name target_name (raw | preprocessed) (full | undersampled) epoch batch  
+
+Les paramètres:
+- model_name = CNN3 | CNN8 | CNNGRU | CNNLSTM  
+    Le modèle à entrainer et tester 
+- target_name = DeltaZ | Success2 | Success3 | Flag3  
+     La classification choisie  
+- raw : Charge les données depuis le fichier originel  
+- preprocessed : utilise les données prédécoupées pour notre étude  
+- undersampled : Rééquilibre les classes par sous-échantillonage  
+- full : Garde l'ensemble des données sans rééquilibrage des classes  
+- epoch : Nombre d'epochs max pour l'entrainement  
+- batch : La taille des batchs  
 
 
 ## Fichier "dataset.py"
 
 ### load_processed
-Ce code permet de télécharger les données déja pré-découpées en Train / Test / Validation
+Ce code permet de charger les données déja pré-découpées en Train / Test / Validation
 
     load_processed(target, Undersample)
     
@@ -39,7 +53,7 @@ Ce code permet de télécharger les données déja pré-découpées en Train / T
         nom_classes : Noms des différentes classes
 
 ### load_dataset
-Ce code permet de télécharger toutes les données et les préparent pour le modèle en 3 parties : "Train", "Test" et "Validation"
+Ce code permet de charger les données depuis les fichiers d'origine (converties en 32bits), pdfs32.npy et attributes32.npy, et les préparent pour le modèle en 3 parties : "Train", "Test" et "Validation"
 
     load_processed(target, Undersample)
     
@@ -128,15 +142,16 @@ Cette fonction est le modèle CNN-LSTM de notre étude.
 
 ## Fichier "main_CNN_2inputs.py"
 Ce code est une version modifié du main pour tester le réseau CNN à 2 entrées.
-Il s'utilise comme suit:
+Il s'utilise de la manière suivante:
 
 python main_CNN_2inputs.py target_name (full | undersampled) epoch batch
 
-target_name : labels à utiliser pour la classification (DeltaZ | Success2 | Success3 | Flag3)
-undersampled : utilise les données avec classes rééquilibrées (sous-échantillonées)
-full : utilise l'ensemble des données
-epoch : nombre d'epochs pour l'apprentissage
-batch : taille des batchs
+Les paramètres:
+- target_name : labels à utiliser pour la classification (DeltaZ | Success2 | Success3 | Flag3)  
+- undersampled : utilise les données avec classes rééquilibrées (sous-échantillonées)  
+- full : utilise l'ensemble des données  
+- epoch : nombre d'epochs pour l'apprentissage  
+- batch : taille des batchs  
 
 ## Report
 Ce dossier sert pour l'affichage des résultats
@@ -177,8 +192,4 @@ Ce code sert à sauvegarder les résultats d'un modèle sous la forme d'un dicti
 Ce code sert à afficher sous la forme d'un subplot, les 2 matrices de confusions ("Train" / "Test"), les courbes d'apprentissages (Accuracy, Loss, Validation Accuracy, Validation Loss) en fonction du nombre d'epochs et les différentes métriques de l'apprentissage
 
     
-## processData.py
-Ce code est celui qui a permis de découper les données qui ont été pré-découpées pour lancer les tests comparatifs
 
-## main_CNN_2inputs.py
-Ce code est le modèle CNN simple avec en entrée la valeur du redshift

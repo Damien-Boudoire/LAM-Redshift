@@ -33,7 +33,8 @@ if __name__ == '__main__':
     ### main function of this application
     #   usage : python main_CNN_2inputs.py target_name (full | undersampled) epoch batch
     #
-    #   target_name : labels to use for classification
+    #   target_name : DeltaZ | Success2 | Success3 | Flag3
+    #        labels to use for classification
     #   undersampled : remove data to get balanced classes
     #   full : do not remove data
     #   epoch : number of epoch that the training will last

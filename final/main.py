@@ -31,7 +31,8 @@ metrics = ["acc"]
 ### list of tested learning rate update functions
 learning_rate_schedulers = [
     LearningRateScheduler(lambda epoch: 1e-4 * tf.math.exp(-.1 * epoch)),
-    LearningRateScheduler(lambda epoch, lr: lr if epoch < 10 else lr * tf.math.exp(-0.1))]
+    LearningRateScheduler(lambda epoch, lr: lr if epoch < 10 else lr * tf.math.exp(-0.1)),
+    ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=2, min_lr=0.000001)]
 ###
 
 
@@ -41,7 +42,8 @@ if __name__ == '__main__':
     #
     #   model_name = CNN3 | CNN8 | CNNGRU | CNNLSTM
     #       the model to train and test
-    #   target_name : labels to use for classification
+    #   target_name : DeltaZ | Success2 | Success3 | Flag3
+    #        labels to use for classification
     #   raw : build the dataset from the original files
     #   preprocessed : use the built datasets in data/
     #   undersampled : remove data to get balanced classes

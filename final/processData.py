@@ -137,6 +137,7 @@ def undersample(x, y, attributes):
         temp_X_test, temp_Y_test, temp_att_test = split_sets(x[resized], y[resized], attributes[resized])
 
         print(temp_X_train.shape)
+        print(temp_X_train)
 
         X_train.append(temp_X_train)
         Y_train.append(temp_Y_train)

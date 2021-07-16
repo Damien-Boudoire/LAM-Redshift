@@ -123,9 +123,9 @@ def undersample(x, y, attributes):
     shuffle_sets(x, y, attributes)
     nb_class = len(np.unique(y))
     class_indexes = [np.where(y == cl)[0] for cl in range(nb_class)]
-    min_length = min([len(indexes) for indexes in class_indexes])
+    new_length = int(min([len(indexes) for indexes in class_indexes]) * 1.1)
 
-    resized_classes = [indexes[:min_length] for indexes in class_indexes]
+    resized_classes = [indexes[:min(new_length, len(indexes))] for indexes in class_indexes]
 
     X_train = []
     Y_train = []
@@ -142,10 +142,6 @@ def undersample(x, y, attributes):
         temp_X_valid, temp_Y_valid, temp_att_valid, \
         temp_X_test, temp_Y_test, temp_att_test = split_sets(x[resized], y[resized], attributes[resized])
 
-        print(temp_X_train.shape)
-        print(temp_X_train)
-        print(X_train)
-
         X_train.append(temp_X_train)
         Y_train.append(temp_Y_train)
         att_train.append(temp_att_train)
@@ -157,8 +153,6 @@ def undersample(x, y, attributes):
         X_test.append(temp_X_test)
         Y_test.append(temp_Y_test)
         att_test.append(temp_att_test)
-
-    print(X_train)
 
     X_train = np.concatenate(X_train)
     Y_train = np.concatenate(Y_train)
@@ -183,14 +177,14 @@ if __name__ == '__main__':
     try:
         target = sys.argv[1]
         to_balance = sys.argv[2]
-        if to_balance not in ["balance", "unbalance"]:
+        if to_balance not in ["balanced", "unbalanced"]:
             raise Exception("Bad parameter value")
         x, y, attributes = load_raw_data(target)
     except Exception as e:
         print(e)
         exit(-1)
 
-    if to_balance == "balance":
+    if to_balance == "balanced":
         X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test = undersample(x, y, attributes)
     else:
         X_train, Y_train, att_train, X_valid, Y_valid, att_valid, X_test, Y_test, att_test = split_sets(x, y, attributes)
